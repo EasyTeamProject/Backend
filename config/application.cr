@@ -3,6 +3,7 @@ require "./i18n.cr"
 require "./initializers/**"
 
 require "amber"
+require "../src/models/**"
 
 require "../src/lib/**"
 require "../src/models/**"
