@@ -18,7 +18,7 @@ targets:
 dependencies:
   amber:
     github: amberframework/amber
-    version: 0.11.2
+    version: 0.27.0
     #branch: master
 
   granite:
