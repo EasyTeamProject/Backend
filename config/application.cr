@@ -3,7 +3,11 @@ require "./i18n.cr"
 require "./initializers/**"
 
 require "amber"
+
+require "../src/lib/**"
 require "../src/models/**"
+
+require "../src/pipes/**"
 
 require "../src/controllers/application_controller"
 require "../src/controllers/**"
