@@ -30,6 +30,7 @@ Amber::Server.configure do
 
   routes :api do
     get "/events", EventsController, :index
+    post "/events", EventsController, :create
   end
 
   routes :static do
