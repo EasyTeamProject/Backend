@@ -1,3 +1,7 @@
+class HTTP::Server::Context
+  property current_user_id : Int64?
+end
+
 module Pipes
   class Auth < Amber::Pipe::Base
     JWT_ALGORITHM = "HS256"
@@ -12,6 +16,7 @@ module Pipes
       end
 
       user_id = data[0]["user_id"]
+      context.current_user_id = user_id.as_i64
 
       call_next(context)
     end
