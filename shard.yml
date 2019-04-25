@@ -40,6 +40,9 @@ dependencies:
   citrine-i18n:
     github: amberframework/citrine-i18n
     version: 0.3.2
+    
+  jwt:
+    github: crystal-community/jwt
 
 development_dependencies:
   garnet_spec:
