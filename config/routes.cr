@@ -29,6 +29,8 @@ Amber::Server.configure do
 
     get "/events/:event_id/transactions", Events::TransactionsController, :index
     post "/events/:event_id/transactions", Events::TransactionsController, :create
+
+    get "/events/:event_id/balances", Events::BalancesController, :index
   end
 
   routes :api do
