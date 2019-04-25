@@ -2,9 +2,10 @@ class UserEvent < Granite::Base
   adapter pg
   table_name user_events
 
-  belongs_to user : User
-  belongs_to event : Event
-
+  field is_admin : Bool
   primary id : Int64
   timestamps
+
+  belongs_to user : User
+  belongs_to event : Event
 end

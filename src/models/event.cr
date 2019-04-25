@@ -3,6 +3,7 @@ class Event < Granite::Base
   table_name events
 
   primary id : Int64
+  field name : String
   field date : Time
   field kind : Int32
   field status : Int32
