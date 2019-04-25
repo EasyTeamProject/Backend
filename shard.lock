@@ -56,6 +56,10 @@ shards:
     github: amberframework/jasper-helpers
     version: 0.2.4
 
+  jwt:
+    github: crystal-community/jwt
+    version: 0.4.0
+
   kilt:
     github: jeromegn/kilt
     version: 0.4.0
