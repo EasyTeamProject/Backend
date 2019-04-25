@@ -29,10 +29,6 @@ dependencies:
     github: amberframework/quartz-mailer
     version: ~> 0.5.1
 
-  jasper_helpers:
-    github: amberframework/jasper-helpers
-    version: ~> 0.2.1
-
   pg:
     github: will/crystal-pg
     version: ~> 0.16.1
