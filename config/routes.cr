@@ -26,6 +26,9 @@ Amber::Server.configure do
     post "/users", UsersController, :create
     get "/users", UsersController, :index
     post "/sessions", SessionsController, :create
+
+    get "/events/:event_id/transactions", Events::TransactionsController, :index
+    post "/events/:event_id/transactions", Events::TransactionsController, :create
   end
 
   routes :api do
