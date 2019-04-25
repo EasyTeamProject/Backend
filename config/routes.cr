@@ -1,15 +1,9 @@
 Amber::Server.configure do
-  pipeline :web do
-    # Plug is the method to use connect a pipe (middleware)
-    # A plug accepts an instance of HTTP::Handler
+  pipeline :public do
     plug Amber::Pipe::PoweredByAmber.new
-    # plug Amber::Pipe::ClientIp.new(["X-Forwarded-For"])
-    plug Citrine::I18n::Handler.new
     plug Amber::Pipe::Error.new
     plug Amber::Pipe::Logger.new
     plug Amber::Pipe::Session.new
-    plug Amber::Pipe::Flash.new
-    plug Amber::Pipe::CSRF.new
   end
 
   pipeline :api do
@@ -17,7 +11,8 @@ Amber::Server.configure do
     plug Amber::Pipe::Error.new
     plug Amber::Pipe::Logger.new
     plug Amber::Pipe::Session.new
-    plug Amber::Pipe::CORS.new
+    plug Pipes::Auth.new
+    # plug Amber::Pipe::CORS.new
   end
 
   # All static content will run these transformations
@@ -27,11 +22,14 @@ Amber::Server.configure do
     plug Amber::Pipe::Static.new("./public")
   end
 
-  routes :web do
-    get "/", HomeController, :index
+  routes :public do
+    post "/users", UsersController, :create
+    get "/users", UsersController, :index
+    post "/sessions", SessionsController, :create
   end
 
   routes :api do
+    get "/events", EventsController, :index
   end
 
   routes :static do
