@@ -28,6 +28,10 @@ shards:
     github: crystal-lang/crystal-db
     version: 0.5.1
 
+  dotenv:
+    github: gdotdesign/cr-dotenv
+    version: 0.2.0
+
   email:
     github: arcage/crystal-email
     version: 0.3.3

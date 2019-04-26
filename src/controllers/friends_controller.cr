@@ -1,6 +1,6 @@
 class FriendsController < ApplicationController
     def index
-        friends = Friend.find_by from_id: context.current_user_id
+        friends = Friend.where(from_id: context.current_user_id).select
 
         respond_with do
             json friends.to_json
@@ -24,7 +24,7 @@ class FriendsController < ApplicationController
     def delete
         friend = Friend.find_by from_id: context.current_user_id, to_id: params[:friend_id]
         
-        if friend.destroy
+        if friend.try &.destroy
             respond_with(204) do
                 json ""
             end
