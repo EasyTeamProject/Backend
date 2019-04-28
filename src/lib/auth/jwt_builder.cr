@@ -3,7 +3,7 @@ require "jwt"
 module Auth
   class JWTBuilder
     JWT_ALGORITHM = "HS256"
-    SECRET_KEY = "foobar"
+    SECRET_KEY    = "foobar"
 
     def initialize(@algorithm = JWT_ALGORITHM, @secret_key = SECRET_KEY)
     end
