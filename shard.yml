@@ -4,7 +4,7 @@ version: 0.1.0
 authors:
   - Alexandre Lairan <lairana@free.fr>
 
-crystal: 0.27.0
+crystal: 0.28.0
 
 license: UNLICENSED
 
@@ -18,7 +18,7 @@ targets:
 dependencies:
   amber:
     github: amberframework/amber
-    version: 0.27.0
+    version: 0.28.0
     #branch: master
 
   granite:
@@ -35,7 +35,7 @@ dependencies:
 
   pg:
     github: will/crystal-pg
-    version: ~> 0.15.0
+    version: ~> 0.16.1
 
   citrine-i18n:
     github: amberframework/citrine-i18n
