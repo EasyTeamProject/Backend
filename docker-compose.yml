@@ -35,6 +35,20 @@ services:
     volumes:
       - db:/var/lib/postgres/data
 
+  spec:
+    build: .
+    image: backend
+    command: bash -c " shards build ameba && bin/ameba && crystal tool format --check && crystal spec"
+    environment:
+      DATABASE_URL: postgres://admin:password@db:5432/backend_development
+    env_file:
+      - .travis.env
+    volumes:
+      - .:/app
+      - shards:/app/lib
+    links:
+      - db
+
 volumes:
   db:
   nodes:
