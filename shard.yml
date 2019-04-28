@@ -15,6 +15,9 @@ targets:
   amber:
     main: lib/amber/src/amber/cli.cr
 
+  ameba:
+    main: lib/ameba/src/cli.cr
+
 dependencies:
   amber:
     github: amberframework/amber
@@ -44,3 +47,7 @@ development_dependencies:
   garnet_spec:
     github: amberframework/garnet-spec
     version: ~> 0.2.1
+
+  ameba:
+    github: veelenga/ameba
+    version: ~> 0.9.1
