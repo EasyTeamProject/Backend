@@ -11,8 +11,8 @@ module Events
         values[to] = values.fetch(to, 0) + amount
       end.map do |k, v|
         {
-          id: k,
-          balance: v
+          id:      k,
+          balance: v,
         }
       end
 
