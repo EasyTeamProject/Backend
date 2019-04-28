@@ -1,6 +1,6 @@
 module Times
   module Parse
-    # Support 
+    # Support
     # => 2016-04-05
     class ISO8601Date < ParseStrategy
       def call(date : String) : Time

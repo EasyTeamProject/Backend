@@ -11,17 +11,17 @@ class SessionsController < ApplicationController
         else
           respond_with do
             json({ "error": "no match" }.to_json)
-          end    
+          end
         end
       else
         respond_with do
           json({ "error": "not password :o" }.to_json)
-        end    
+        end
       end
     else
       respond_with do
         json({ "error": "email doesn't exist" }.to_json)
-      end  
+      end
     end
   end
 

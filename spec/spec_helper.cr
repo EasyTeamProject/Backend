@@ -13,4 +13,3 @@ Micrate::Cli.run_up
 
 # Disable Granite logs in tests
 Granite.settings.logger = Logger.new nil
-

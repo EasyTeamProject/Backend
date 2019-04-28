@@ -10,8 +10,8 @@ class UsersController < ApplicationController
   def create
     service = Users::Create.new
     user = service.call(
-      user_params[:email], 
-      user_params[:password], 
+      user_params[:email],
+      user_params[:password],
       Auth::PasswordEncrypter.new
     )
 
