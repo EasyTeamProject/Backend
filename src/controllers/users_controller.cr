@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     users = User.all
 
     respond_with do
-      json users.to_json
+      json UserSerializer.render(users.to_a)
     end
   end
 
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 
     if user.save
       respond_with do
-        json user.to_json
+        json UserSerializer.render(user)
       end
     else
       respond_with do
