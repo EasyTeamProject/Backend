@@ -6,6 +6,7 @@ require "amber"
 
 require "../src/lib/**"
 require "../src/models/**"
+require "../src/serializers/**"
 
 require "../src/pipes/**"
 
