@@ -28,6 +28,10 @@ shards:
     github: elorest/compiled_license
     version: 0.1.3
 
+  crinder:
+    github: c910335/crinder
+    version: 0.1.4
+
   db:
     github: crystal-lang/crystal-db
     version: 0.5.1

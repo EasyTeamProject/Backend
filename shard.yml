@@ -46,6 +46,8 @@ dependencies:
   dotenv:
     github: gdotdesign/cr-dotenv
 
+  crinder:
+    github: c910335/crinder
 
 development_dependencies:
   garnet_spec:
