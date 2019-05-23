@@ -21,8 +21,8 @@ targets:
 dependencies:
   amber:
     github: amberframework/amber
-    version: 0.28.0
-    #branch: master
+    # version: 0.28.0
+    branch: master
 
   granite:
     github: amberframework/granite
@@ -39,7 +39,7 @@ dependencies:
   citrine-i18n:
     github: amberframework/citrine-i18n
     version: 0.3.2
-    
+
   jwt:
     github: crystal-community/jwt
 
@@ -48,6 +48,10 @@ dependencies:
 
   crinder:
     github: c910335/crinder
+    branch: master
+
+  monads:
+    github: alex-lairan/monads
 
 development_dependencies:
   garnet_spec:

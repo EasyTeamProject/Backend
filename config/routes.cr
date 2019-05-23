@@ -41,6 +41,11 @@ Amber::Server.configure do
     delete "/friends/:friend_id", FriendsController, :delete
 
     post "/events/:event_id/invitations", Events::InvitationsController, :create
+
+    namespace "/events/:event_id" do
+      post "/survey", Events::SurveysController, :create
+      get "/survey", Events::SurveysController, :index
+    end
   end
 
   routes :static do
