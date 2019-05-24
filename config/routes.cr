@@ -39,6 +39,8 @@ Amber::Server.configure do
     get "/friends", FriendsController, :index
     post "/friends", FriendsController, :create
     delete "/friends/:friend_id", FriendsController, :delete
+
+    post "/events/:event_id/invitations", Events::InvitationsController, :create
   end
 
   routes :static do
