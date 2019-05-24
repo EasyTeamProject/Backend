@@ -1,14 +1,5 @@
 module Events
   class InvitationsController < ApplicationController
-    INVITATION_STRATEGIES = {
-      "id" => ->(id : Int64) do
-      end,
-      "email" => ->(email : String) do
-      end,
-      "facebook" => ->() do
-      end
-    }
-
     # Steps
     # 1 - Verify user is event admin
     # 2 - Select invitation strategy (email - friend - facebook)
