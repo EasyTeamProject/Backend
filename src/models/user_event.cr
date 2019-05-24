@@ -8,4 +8,8 @@ class UserEvent < Granite::Base
 
   belongs_to user : User
   belongs_to event : Event
+
+  def admin?
+    is_admin
+  end
 end
