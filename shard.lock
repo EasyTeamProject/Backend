@@ -56,6 +56,10 @@ shards:
     github: amberframework/granite
     version: 0.15.2
 
+  habitat:
+    github: luckyframework/habitat
+    version: 0.4.3
+
   i18n:
     github: TechMagister/i18n.cr
     version: 0.2.0
