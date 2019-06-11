@@ -45,6 +45,13 @@ Amber::Server.configure do
     namespace "/events/:event_id" do
       post "/survey", Events::SurveysController, :create
       get "/survey", Events::SurveysController, :index
+
+      post "/albums", Events::AlbumsController, :create
+      get "/albums", Events::AlbumsController, :index
+
+      namespace "/albums/:album_id" do
+        post "/medias", Events::Albums::MediasController, :create
+      end
     end
   end
 
