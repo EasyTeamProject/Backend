@@ -4,6 +4,8 @@ class Album < Granite::Base
 
   belongs_to :event
 
+  has_many album_medias : AlbumMedia
+
   primary id : Int64
   field name : String
   timestamps
