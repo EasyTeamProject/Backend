@@ -1,4 +1,6 @@
 class User < Granite::Base
+  include ModelGranite
+
   adapter pg
   table_name users
 

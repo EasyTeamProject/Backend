@@ -1,4 +1,6 @@
 class Album < Granite::Base
+  include ModelGranite
+
   adapter pg
   table_name albums
 

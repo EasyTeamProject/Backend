@@ -1,4 +1,6 @@
 class AlbumMedia < Granite::Base
+  include ModelGranite
+
   adapter pg
   table_name album_media
 

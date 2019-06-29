@@ -5,6 +5,7 @@ require "./initializers/**"
 require "amber"
 
 require "../src/lib/**"
+require "../src/models/model_granite"
 require "../src/models/**"
 require "../src/serializers/**"
 
