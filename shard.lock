@@ -64,9 +64,17 @@ shards:
     github: TechMagister/i18n.cr
     version: 0.2.0
 
+  ifrit:
+    github: imdrasil/ifrit
+    version: 0.1.2
+
   inflector:
     github: phoffer/inflector.cr
     version: 0.1.8
+
+  jennifer:
+    github: imdrasil/jennifer.cr
+    version: 0.8.0
 
   jwt:
     github: crystal-community/jwt
@@ -115,6 +123,10 @@ shards:
   redis:
     github: stefanwille/crystal-redis
     version: 2.2.1
+
+  sam:
+    github: imdrasil/sam.cr
+    version: 0.3.0
 
   selenium:
     github: ysbaddaden/selenium-webdriver-crystal
