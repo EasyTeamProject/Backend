@@ -1,5 +1,5 @@
 class Survey < Granite::Base
-  include ModelGranite
+
 
   adapter pg
   table_name surveys

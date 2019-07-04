@@ -1,5 +1,5 @@
 class MessageMedia < Granite::Base
-  include ModelGranite
+
 
   adapter pg
   table_name message_media

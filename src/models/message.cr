@@ -1,5 +1,5 @@
 class Message < Granite::Base
-  include ModelGranite
+
 
   adapter pg
   table_name messages
