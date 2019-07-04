@@ -1,6 +1,12 @@
 module Events
   module Surveys
     class AnswersController < ApplicationController
+      def show
+        respond_with do
+          json "{}"
+        end
+      end
+
       def create
         answers = params[:answers].map do |answer|
           Survey::Answer.new(
@@ -10,6 +16,8 @@ module Events
         end
 
         Survey::Answer.import(answers)
+
+        respond_with(204) {}
       end
 
       def delete

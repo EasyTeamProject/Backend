@@ -49,11 +49,22 @@ Amber::Server.configure do
       post "/invitations", Events::InvitationsController, :create
       delete "/invitations/:user_id", Events::InvitationsController, :delete
 
+      post "/medias", Events::MediasController, :create
+      get "/medias", Events::MediasController, :index
+
       post "/survey", Events::SurveysController, :create
       get "/survey", Events::SurveysController, :index
 
-      post "/medias", Events::MediasController, :create
-      get "/medias", Events::MediasController, :index
+      get "/survey/:survey_id/answers", Event::Surveys::AnswersController, :show
+      post "/survey/:survey_id/answers", Event::Surveys::AnswersController, :create
+      delete "/survey/:survey_id/answers", Event::Surveys::AnswersController, :delete
+
+      post "/albums", Events::AlbumsController, :create
+      get "/albums", Events::AlbumsController, :index
+
+      namespace "/albums/:album_id" do
+        post "/medias", Events::Albums::MediasController, :create
+      end
     end
   end
 
