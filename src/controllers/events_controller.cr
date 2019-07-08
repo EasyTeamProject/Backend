@@ -40,6 +40,23 @@ class EventsController < ApplicationController
     end
   end
 
+  def update
+    if event = Event.find(params[:id])
+      event.update(
+        name: event_params[:name],
+        date: Times::Parse::ISO8601Date.new.call(event_params[:date])
+      )
+
+      respond_with do
+        json event.to_json
+      end
+    else
+      respond_with(404) do
+        json({ error: :not_found }.to_json)
+      end
+    end
+  end
+
   private def event_params
     params.validation do
       required(:name)
