@@ -7,6 +7,14 @@ class EventsController < ApplicationController
     end
   end
 
+  def show
+    event = Event.find(params[:id])
+
+    respond_with do
+      json EventSerializer::WithInvitation.render(event.not_nil!)
+    end
+  end
+
   def create
     service_event = Events::Create.new(Times::Parse::ISO8601Date.new)
     event = service_event.call(event_params[:name], event_params[:date])
