@@ -31,6 +31,7 @@ Amber::Server.configure do
   routes :api do
     get "/events", EventsController, :index
     get "/events/:id", EventsController, :show
+    patch "/events/:id", EventsController, :update
     post "/events", EventsController, :create
 
     get "/friends", FriendsController, :index
