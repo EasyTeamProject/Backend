@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def show
-    user = User.find(context.current_user_id)
+    user = User.find!(context.current_user_id)
 
     respond_with do
       json UserSerializer.render(user)
