@@ -26,12 +26,12 @@ module Events
           end
         else
           respond_with do
-            json({error: "An error"}.to_json)
+            json({error: "An error on save"}.to_json)
           end
         end
       else
         respond_with do
-          json({error: "An error"}.to_json)
+          json({error: "An error, not admin"}.to_json)
         end
       end
     end
