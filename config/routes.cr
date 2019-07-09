@@ -45,6 +45,7 @@ Amber::Server.configure do
       get "/balances", Events::BalancesController, :index
 
       post "/invitations", Events::InvitationsController, :create
+      delete "/invitations/:user_id", Events::InvitationsController, :delete
 
       post "/survey", Events::SurveysController, :create
       get "/survey", Events::SurveysController, :index

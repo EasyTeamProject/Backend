@@ -1,9 +1,16 @@
 class FriendsController < ApplicationController
   def index
-    friends = Friend.find_by from_id: context.current_user_id
+    friends = Friend.all("WHERE from_id = #{context.current_user_id} OR to_id = #{context.current_user_id}")
 
-    respond_with do
-      json friends.to_json
+    if friends.size == 0
+      respond_with { json "[]" }
+    else
+      ids = friends.map(&.from_id) + friends.map(&.to_id)
+      users = User.all("WHERE id IN (#{ids.join(",")})")
+
+      respond_with do
+        json UserSerializer.render(users.to_a)
+      end
     end
   end
 

@@ -10,7 +10,7 @@ module Events
 
     def create
       transaction = MoneyTransaction.new(
-        from_id: transaction_params[:from_id],
+        from_id: context.current_user_id,
         to_id: transaction_params[:to_id],
         event_id: transaction_params[:event_id],
         amount: transaction_params[:amount]
@@ -29,7 +29,6 @@ module Events
 
     private def transaction_params
       params.validation do
-        required(:from_id)
         required(:to_id)
         required(:event_id)
         required(:amount)

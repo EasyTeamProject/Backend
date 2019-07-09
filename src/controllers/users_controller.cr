@@ -12,6 +12,8 @@ class UsersController < ApplicationController
     user = service.call(
       user_params[:email],
       user_params[:password],
+      user_params[:first_name],
+      user_params[:last_name],
       Auth::PasswordEncrypter.new
     )
 
@@ -30,6 +32,8 @@ class UsersController < ApplicationController
     params.validation do
       required(:email) { |p| p.email? }
       required(:password)
+      required(:first_name)
+      required(:last_name)
     end
   end
 end
