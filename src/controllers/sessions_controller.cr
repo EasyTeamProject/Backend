@@ -1,4 +1,12 @@
 class SessionsController < ApplicationController
+  def show
+    user = User.find(context.current_user_id)
+
+    respond_with do
+      json UserSerializer.render(user)
+    end
+  end
+
   def create
     user = User.find_by(email: auth_params[:email])
 

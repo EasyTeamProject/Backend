@@ -34,6 +34,8 @@ Amber::Server.configure do
     patch "/events/:id", EventsController, :update
     post "/events", EventsController, :create
 
+    get "/profile", SessionsController, :show
+
     get "/friends", FriendsController, :index
     post "/friends", FriendsController, :create
     delete "/friends/:friend_id", FriendsController, :delete

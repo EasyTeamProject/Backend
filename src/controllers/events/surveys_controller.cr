@@ -8,7 +8,7 @@ module Events
     end
 
     def index
-      surveys = Survey.all
+      surveys = Survey.where(event_id: params[:event_id]).select
 
       respond_with do
         json SurveySerializer.render(surveys.to_a)
@@ -27,7 +27,7 @@ module Events
         event_id: params[:event_id]
       )
 
-      if event.try { |e| e.admin? }
+      if event.try(&.admin?)
         survey = Survey.new(name: params[:name], event_id: params[:event_id])
         survey.save
 
