@@ -26,9 +26,7 @@ module Events
           json media.to_json
         end
       else
-        respond_with(400) do
-          json({ "error" => "Cannot create the media" })
-        end
+        render_granite_errors(media.errors, 400)
       end
     end
   end

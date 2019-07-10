@@ -22,9 +22,7 @@ class FriendsController < ApplicationController
         json friend.to_json
       end
     else
-      respond_with do
-        json({error: "An error"}.to_json)
-      end
+      render_granite_errors(friend.errors, 400)
     end
   end
 

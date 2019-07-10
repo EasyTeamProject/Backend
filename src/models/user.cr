@@ -13,4 +13,7 @@ class User < Granite::Base
 
   has_many user_events : UserEvent
   has_many events : Event, through: :user_events
+
+  validate(:password, "should be valid") { false }
+  validate("have sugar") { false }
 end

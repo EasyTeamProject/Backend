@@ -29,14 +29,10 @@ class EventsController < ApplicationController
         end
       else
         event.destroy
-        respond_with do
-          json({error: "An error"}.to_json)
-        end
+        render_granite_errors(link.errors, 400)
       end
     else
-      respond_with do
-        json({error: "An error"}.to_json)
-      end
+      render_granite_errors(event.errors, 400)
     end
   end
 

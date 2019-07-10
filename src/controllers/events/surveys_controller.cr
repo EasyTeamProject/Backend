@@ -48,10 +48,7 @@ module Events
             json SurveySerializer.render(survey)
           end
         else
-          pp survey.errors
-          respond_with do
-            json({error: "An error"}.to_json)
-          end
+          render_granite_errors(survey.errors, 400)
         end
       else
         respond_with do
