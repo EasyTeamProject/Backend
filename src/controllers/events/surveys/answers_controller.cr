@@ -11,7 +11,7 @@ module Events
         answers = answer_ids.map do |answer|
           Survey::Answer.new(
             user_id: context.current_user_id,
-            response_id: answer
+            survey_response_id: answer
           )
         end
 
