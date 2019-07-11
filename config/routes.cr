@@ -60,13 +60,6 @@ Amber::Server.configure do
         post "/answers", Events::Surveys::AnswersController, :create
         delete "/answers", Events::Surveys::AnswersController, :delete
       end
-
-      post "/albums", Events::AlbumsController, :create
-      get "/albums", Events::AlbumsController, :index
-
-      namespace "/albums/:album_id" do
-        post "/medias", Events::Albums::MediasController, :create
-      end
     end
   end
 

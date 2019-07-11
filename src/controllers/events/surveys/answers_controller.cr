@@ -8,7 +8,7 @@ module Events
       end
 
       def create
-        answers = params[:answers].map do |answer|
+        answers = answer_ids.map do |answer|
           Survey::Answer.new(
             user_id: context.current_user_id,
             response_id: answer
@@ -17,13 +17,17 @@ module Events
 
         Survey::Answer.import(answers)
 
-        respond_with(204) {}
+        respond_with(204) { json "" }
       end
 
       def delete
-        Survey::Answer.delete(params[:answers])
+        Survey::Answer.where(id: answer_ids).select.map &.destroy
 
-        respond_with(204) {}
+        respond_with(204) { json "" }
+      end
+
+      private def answer_ids
+        params[:answers][1..-2].split(",").map(&.to_i64)
       end
     end
   end
