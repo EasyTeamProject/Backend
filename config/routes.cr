@@ -54,6 +54,7 @@ Amber::Server.configure do
 
       post "/survey", Events::SurveysController, :create
       get "/survey", Events::SurveysController, :index
+      get "/survey/:id", Events::SurveysController, :show
 
       namespace "/survey/:survey_id" do
         get "/answers", Events::Surveys::AnswersController, :show

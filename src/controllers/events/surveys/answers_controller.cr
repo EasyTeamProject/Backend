@@ -2,9 +2,11 @@ module Events
   module Surveys
     class AnswersController < ApplicationController
       def show
-        respond_with do
-          json "{}"
-        end
+        answers = Survey::Answer::Stat.all <<-SQL
+          WHERE surveys.id = #{params[:survey_id]}
+        SQL
+
+        respond_with { json answers.to_json }
       end
 
       def create
