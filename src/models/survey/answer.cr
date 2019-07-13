@@ -5,6 +5,7 @@ class Survey::Answer < Granite::Base
     field user_id : Int64
     field survey_response_id : Int64
     field survey_question_id : Int64
+    field response : String
     field question : String
 
     select_statement <<-SQL
@@ -13,6 +14,7 @@ class Survey::Answer < Granite::Base
         survey_answers.user_id,
         survey_answers.survey_response_id,
         survey_responses.survey_question_id,
+        survey_responses.text as response,
         survey_questions.question
       FROM survey_answers
       JOIN survey_responses ON survey_responses.id = survey_answers.survey_response_id

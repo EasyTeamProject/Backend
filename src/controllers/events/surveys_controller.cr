@@ -1,6 +1,6 @@
 module Events
   class SurveysController < ApplicationController
-    alias ResultSet = NamedTuple(count: Int32, question: String, question_id: Int64)
+    alias ResultSet = NamedTuple(count: Int32, question: String, question_id: Int64, response: String, response_id: Int64)
 
     class QuestionLoader
       JSON.mapping(
@@ -23,17 +23,21 @@ module Events
       SQL
 
       result = answers.each_with_object(Hash(Int64, ResultSet).new) do |stat, acc|
-        if !acc[stat.survey_question_id!]?
-          acc[stat.survey_question_id!] = {
+        if !acc[stat.survey_response_id!]?
+          acc[stat.survey_response_id!] = {
             count: 1,
             question: stat.question!,
-            question_id: stat.survey_question_id!
+            question_id: stat.survey_question_id!,
+            response_id: stat.survey_response_id!,
+            response: stat.response!
           }
         else
-          acc[stat.survey_question_id!] = {
-            count: acc[stat.survey_question_id!][:count] + 1,
-            question: acc[stat.survey_question_id!][:question],
-            question_id: acc[stat.survey_question_id!][:question_id],
+          acc[stat.survey_response_id!] = {
+            count: acc[stat.survey_response_id!][:count] + 1,
+            question: acc[stat.survey_response_id!][:question],
+            question_id: acc[stat.survey_response_id!][:question_id],
+            response_id: acc[stat.survey_response_id!][:response_id],
+            response: acc[stat.survey_response_id!][:response]
           }
         end
       end.values
