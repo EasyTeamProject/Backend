@@ -1,5 +1,5 @@
 require "./spec_helper"
 
-describe Events::BalanceController do
+describe Events::BalancesController do
   # subject = Events::BalanceController.new
 end

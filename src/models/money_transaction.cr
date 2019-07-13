@@ -1,5 +1,5 @@
 class MoneyTransaction < Granite::Base
-  include ModelGranite
+
 
   adapter pg
   table_name money_transactions

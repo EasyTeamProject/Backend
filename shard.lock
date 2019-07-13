@@ -54,7 +54,7 @@ shards:
 
   granite:
     github: amberframework/granite
-    version: 0.15.2
+    version: 0.16.0
 
   habitat:
     github: luckyframework/habitat

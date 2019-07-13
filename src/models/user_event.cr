@@ -1,5 +1,5 @@
 class UserEvent < Granite::Base
-  include ModelGranite
+
 
   adapter pg
   table_name user_events
