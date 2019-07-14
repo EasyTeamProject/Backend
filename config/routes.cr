@@ -62,6 +62,8 @@ Amber::Server.configure do
         delete "/answers", Events::Surveys::AnswersController, :delete
       end
     end
+
+    websocket "/invitations", InvitationSocket
   end
 
   routes :static do

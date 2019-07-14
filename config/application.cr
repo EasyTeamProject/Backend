@@ -11,6 +11,9 @@ require "../src/serializers/**"
 
 require "../src/pipes/**"
 
+require "../src/channels/**"
+require "../src/sockets/**"
+
 require "../src/controllers/application_controller"
 require "../src/controllers/**"
 

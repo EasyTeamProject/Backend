@@ -17,6 +17,13 @@ module Events
           is_admin: params[:is_admin]? || false
         )
         if invitation.save
+          InvitationSocket.broadcast(
+            "message",
+            "invitation_room:#{params[:user_id]}",
+            "invitation",
+            { "message" => "You have been invited" }
+          )
+
           respond_with do
             json invitation.to_json
           end
