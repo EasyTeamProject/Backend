@@ -14,7 +14,11 @@ class SessionsController < ApplicationController
       if password = user.password
         if Crypto::Bcrypt::Password.new(password) == auth_params[:password]
           respond_with do
-            json({"success": Auth::JWTBuilder.new.encode({user_id: user.id})}.to_json)
+            json(
+              {
+                "success": Auth::JWTBuilder.new.encode({user_id: user.id}),
+                "user": JSON.parse(UserSerializer.render(user))
+              }.to_json)
           end
         else
           respond_with do
