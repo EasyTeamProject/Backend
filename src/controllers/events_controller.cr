@@ -18,7 +18,8 @@ class EventsController < ApplicationController
   def create
     service_event = Events::Create.new(Times::Parse::ISO8601Date.new)
     event = service_event.call(event_params[:name], event_params[:date])
-
+    event.subject = event_params[:subject]
+    event.information = event_params[:information]
     if event.save
       service_link = Events::Link.new
       link = service_link.call(context.current_user_id, event.id, true)
@@ -40,7 +41,9 @@ class EventsController < ApplicationController
     if event = Event.find(params[:id])
       event.update(
         name: event_params[:name],
-        date: Times::Parse::ISO8601Date.new.call(event_params[:date])
+        date: Times::Parse::ISO8601Date.new.call(event_params[:date]),
+        subject: event_params[:subject],
+        information: event_params[:information]
       )
 
       respond_with do
@@ -57,6 +60,8 @@ class EventsController < ApplicationController
     params.validation do
       required(:name)
       required(:date)
+      required(:subject)
+      required(:information)
     end
   end
 end

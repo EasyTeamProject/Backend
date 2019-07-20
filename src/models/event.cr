@@ -35,8 +35,8 @@ class Event < Granite::Base
   primary id : Int64
   field name : String
   field date : Time
-  field kind : Int32
-  field status : Int32
+  field subject : String
+  field information : String
   timestamps
 
   def members
