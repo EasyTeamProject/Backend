@@ -1,4 +1,5 @@
 require "./database.cr"
+require "./jennifer.cr"
 require "./i18n.cr"
 require "./initializers/**"
 
@@ -7,6 +8,7 @@ require "amber"
 require "../src/lib/**"
 require "../src/models/model_granite"
 require "../src/models/**"
+require "../src/models_jennifer/**"
 require "../src/serializers/**"
 
 require "../src/pipes/**"

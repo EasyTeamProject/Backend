@@ -1,0 +1,12 @@
+default: &default
+  host: localhost
+  adapter: postgres
+  user: postgres
+
+development:
+  db: backend_development
+  <<: *default
+
+test:
+  db: backend_test
+  <<: *default
